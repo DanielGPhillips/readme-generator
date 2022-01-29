@@ -1,13 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const util = require('util');
+const readMeGenerator = require('./utils/readMeGenerator');
+const asyncWrite = util.promisify(fs.writeFile);
 
-// Generate README prompts
-//Inputs must include project title, description, installation instructions, 
-// usage information, contribution guidelines, and test instructions.
-//Lists must include license and badges
-//GitHub username to link
-//email adress to link
-//function table of contents links
+
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -58,3 +55,18 @@ const promptUser = () => {
         },
     ])
 }
+
+async function init() {
+    try {
+        const inputs = await promptUser();
+        const generateReadMe = readMeGenerator(inputs);
+        asyncWrite('./generated_files/README.md', generateReadMe);
+        console.log('Successfully wrote README.md');
+    }
+    catch(err) {
+        console.log('Uh Oh! An Error Occured.');
+        throw err;        
+    }
+    
+}
+init();

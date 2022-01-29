@@ -1,6 +1,10 @@
-# ${input.projTitle} ${input.licBadge}
+<h1 align=center>${inputs.projTitle}</h1> 
+        
+![badge](https://img.shields.io/badge/license-${input.licBadge})
+        
 ## Description
- ${input.desc}
+    ${inputs.desc}
+
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -8,17 +12,29 @@
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+
 ## Installation
-    ${input.inst}
+    ${inputs.inst}
+
 ## Usage
-    ${input.usage}
+    ${inputs.usage}
+
 ## License
-    ${input.lic}
+![badge](https://img.shields.io/badge/license-${input.licBadge})
+
+    This app is covered by the ${inputs.lic} license.
     * generated license notice that explains which license the application is covered under *
+
 ## Contributing
-    ${input.contr}
+    ${inputs.contr}
+
 ## Tests
-    ${input.test}
+    ${inputs.test}
+
 ## Questions
-    ${input.ghName}
-    ${input.email}
+
+[My GitHub](https://github.com/${inputs.ghName})
+
+[My Email](mailto:${inputs.email}) 
+
+_This README was generated using [Danny's README Generator](https://github.com/DanielGPhillips/readme-generator)_
