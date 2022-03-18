@@ -4,7 +4,8 @@
   "description": "A basic command line prompt README generator utilizing the inquirer node module.  Made as part of the University of Washington Full-Stack Web Developer program.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
