@@ -1,11 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
-const readMeGenerator = require('./utils/readMeGenerator');
-const asyncWrite = util.promisify(fs.writeFile);
 
 
-const promptUser = () => {
+
+const readmePrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -56,9 +54,10 @@ const promptUser = () => {
     ])
 }
 
-function generateREADME ( {title, description, installation, usage, contribution, test, license, gitHub, email }) {
+function generateREADME ( {projTitle, description, installation, usage, contr, test, license, ghName, email }) {
     return `
-    # ${projTitle} ![](https://img.shields.io/badge/License-%22${license}%22-yellow.svg)
+    # ${projTitle} 
+    ![license badge](https://img.shields.io/badge/License-%22${license}%22-yellow.svg)
     ## Table of Contents
     1. [Description](#description)
     2. [Installation](#installation)
@@ -67,19 +66,19 @@ function generateREADME ( {title, description, installation, usage, contribution
     5. [Test instructions](#test)
     6. [License](#license)
     7. [Questions](#questions)
-    ## Description <a id="description"></a>
+    ## Description 
     ${description}
-    ## Installation <a id="installation"></a>
+    ## Installation 
     ${installation}
-    ## Usage <a id="usage"></a>
+    ## Usage 
     ${usage}
-    ## Contribution Guidelines <a id="contribution"></a>
+    ## Contribution Guidelines 
     ${contr}
-    ## Test Instructions <a id="test"></a>
+    ## Test Instructions 
     ${test}
-    ## License <a id="license"></a>
+    ## License 
     This application's license is covered under the ${license} license.
-    ## Questions <a id="questions"></a>
+    ## Questions 
     My GitHub profile is [${ghName}](https://github.com/${ghName}), and I can be reached for questions via email at [${email}](mailto:${email}).`
     
     }
